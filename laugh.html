@@ -16,11 +16,18 @@
       background: #f4f4f4;
       color: #333;
       padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
     .dashboard {
-      max-width: 400px;
-      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 900px;
+      height: 100%;
       border-radius: 30px;
       background: white;
       box-shadow: 0 5px 20px rgba(0,0,0,0.1);
@@ -31,8 +38,8 @@
       padding: 20px;
       background: linear-gradient(to right, #ff4adb, #ffa84d);
       color: white;
-      border-bottom-left-radius: 40px;
-      border-bottom-right-radius: 40px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
     }
 
     .header h2 {
@@ -52,6 +59,11 @@
       height: 100%;
       width: 60%;
       background: white;
+    }
+
+    .main-content {
+      overflow-y: auto;
+      flex: 1;
     }
 
     .section {
@@ -91,7 +103,7 @@
       display: flex;
       flex-direction: column;
       gap: 15px;
-      max-height: 250px;
+      max-height: 200px;
       overflow-y: auto;
     }
 
@@ -151,6 +163,37 @@
       font-size: 22px;
       margin-top: 10px;
     }
+
+    /* LANDSCAPE MODE ADJUSTMENTS */
+    @media (orientation: landscape) and (min-width: 700px) {
+      .dashboard {
+        flex-direction: row;
+      }
+
+      .header {
+        flex: 1;
+        height: 100%;
+        border-bottom-left-radius: 30px;
+        border-top-left-radius: 30px;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      .main-content {
+        flex: 2;
+        padding: 10px 0;
+        overflow-y: auto;
+      }
+
+      .section {
+        padding: 20px 30px;
+      }
+
+      .places {
+        flex-direction: row;
+        overflow-x: auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -159,75 +202,79 @@
 
     <!-- Header -->
     <div class="header">
-      <h2>Welcome to your Laugh Loop, Joanna! 👋</h2>
+      <h2>Welcome to your Laugh Loop, Khai! 👋</h2>
       <p>Let’s turn your city into a playground of inside jokes.</p>
       <div class="xp-bar"><div class="xp-fill"></div></div>
     </div>
 
-    <!-- Personalized Prompt -->
-    <div class="section">
-      <h3>Your First Laugh Quest 🎯</h3>
-      <div class="prompt-box">
-        <strong>Your Mission:</strong> Find something funny near <em>Fenway</em>.<br>
-        👉 “Give your favorite corner store a sitcom name”
-      </div>
-      <button class="button">Post Something Funny →</button>
-    </div>
+    <!-- Main Scrollable Content -->
+    <div class="main-content">
 
-    <!-- UGC Feed -->
-    <div class="section">
-      <h3>Laughs Near You 🤣</h3>
-      <div class="feed">
-        <div class="feed-item">
-          “This statue is judging my outfit.”<br>
-          <span class="location">📍 Back Bay</span>
-          <div class="reactions">😂 13 🤣 9 💀 3</div>
+      <!-- Personalized Prompt -->
+      <div class="section">
+        <h3>Your First Laugh Quest 🎯</h3>
+        <div class="prompt-box">
+          <strong>Your Mission:</strong> Find something smart near <em>Fenway</em>.<br>
+          👉 “Give your favorite hackathon a sitcom name”
         </div>
-        <div class="feed-item">
-          “Why does this pizza joint smell like a library?”<br>
-          <span class="location">📍 North End</span>
-          <div class="reactions">😂 6 🤣 4 💀 1</div>
-        </div>
+        <button class="button">Post something funny →</button>
       </div>
-    </div>
 
-    <!-- Progress Tracker -->
-    <div class="section">
-      <h3>Your Loop Journey 📈</h3>
-      <div class="progress-tracker">
-        You’ve made 3 people laugh today in Fenway!<br>
-        Next unlock: Back Bay Street Art Quest 🎨<br>
-        Badge: <strong>Meme Mayor</strong><br>
-        Loop streak: 🔥 2 days in a row!
-      </div>
-    </div>
-
-    <!-- Places to Explore -->
-    <div class="section">
-      <h3>Places to Explore 📍</h3>
-      <div class="places">
-        <div class="place-card">
-          <strong>Boston Commons</strong><br>
-          “Weirdest bench contest”
-        </div>
-        <div class="place-card">
-          <strong>Chinatown</strong><br>
-          “Roast this dish (gently)”
-        </div>
-        <div class="place-card">
-          <strong>Back Bay</strong><br>
-          “Hidden mural challenge”
+      <!-- UGC Feed -->
+      <div class="section">
+        <h3>Laughs near you 🤣</h3>
+        <div class="feed">
+          <div class="feed-item">
+            “This statue is judging my outfit.”<br>
+            <span class="location">📍 Back Bay</span>
+            <div class="reactions">😂 13 🤣 9 💀 3</div>
+          </div>
+          <div class="feed-item">
+            “Why does this pizza joint smell like a library?”<br>
+            <span class="location">📍 North End</span>
+            <div class="reactions">😂 6 🤣 4 💀 1</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Invite -->
-    <div class="section invite">
-      Laughter’s better with friends. Challenge someone to join your loop.<br>
-      <button class="button" style="margin-top: 10px;">Invite with Link 🔗</button>
-      <div class="emoji-loop">😂🤣💀 Squad Leaderboard</div>
-    </div>
+      <!-- Progress Tracker -->
+      <div class="section">
+        <h3>Your Laugh Loop journey 📈</h3>
+        <div class="progress-tracker">
+          You’ve made 3 people laugh today in Fenway!<br>
+          Next unlock: Back Bay Street Art Quest 🎨<br>
+          Badge: <strong>Meme Mayor</strong><br>
+          Loop streak: 🔥 2 days in a row!
+        </div>
+      </div>
 
+      <!-- Places to Explore -->
+      <div class="section">
+        <h3>Spots chosen by your "friends" 📍</h3>
+        <div class="places">
+          <div class="place-card">
+            <strong>Boston Commons</strong><br>
+            “Weirdest bench contest”
+          </div>
+          <div class="place-card">
+            <strong>Chinatown</strong><br>
+            “Roast this dish (gently)”
+          </div>
+          <div class="place-card">
+            <strong>Back Bay</strong><br>
+            “Hidden mural challenge”
+          </div>
+        </div>
+      </div>
+
+      <!-- Invite -->
+      <div class="section invite">
+        Laughter’s better with friends. Challenge someone to join your loop.<br>
+        <button class="button" style="margin-top: 10px;">Invite with Link 🔗</button>
+        <div class="emoji-loop">😂🤣💀 Squad Leaderboard</div>
+      </div>
+
+    </div>
   </div>
 
 </body>
