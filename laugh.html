@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Laugh Loop Dashboard</title>
+  <title>Laugh Loop Dashboard – Soft Theme</title>
   <style>
     * {
       box-sizing: border-box;
@@ -13,8 +13,8 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f4f4f4;
-      color: #333;
+      background: #edd0ea;
+      color: #4a3f58;
       padding: 20px;
       display: flex;
       justify-content: center;
@@ -29,14 +29,14 @@
       max-width: 900px;
       height: 100%;
       border-radius: 30px;
-      background: white;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      background: #f7e7f4;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
       overflow: hidden;
     }
 
     .header {
       padding: 20px;
-      background: linear-gradient(to right, #ff4adb, #ffa84d);
+      background: linear-gradient(to right, #c39adf, #f4c2e5);
       color: white;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
@@ -48,7 +48,7 @@
     }
 
     .xp-bar {
-      background: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.4);
       border-radius: 10px;
       height: 10px;
       overflow: hidden;
@@ -58,7 +58,7 @@
     .xp-fill {
       height: 100%;
       width: 60%;
-      background: white;
+      background: #ffffff;
     }
 
     .main-content {
@@ -68,17 +68,18 @@
 
     .section {
       padding: 20px;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #ebd6e7;
     }
 
     .section h3 {
       font-size: 16px;
       margin-bottom: 10px;
+      color: #6a5178;
     }
 
     .prompt-box {
-      background: #fff4fb;
-      border-left: 5px solid #ff4adb;
+      background: #f6def7;
+      border-left: 5px solid #c39adf;
       padding: 15px;
       border-radius: 15px;
       font-size: 14px;
@@ -86,17 +87,22 @@
     }
 
     .prompt-box strong {
-      color: #b8008a;
+      color: #a05dcb;
     }
 
     .button {
-      background: #ff4adb;
+      background: #c39adf;
       color: white;
       padding: 10px 15px;
       border-radius: 20px;
       font-weight: bold;
       border: none;
       cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .button:hover {
+      background: #a872c3;
     }
 
     .feed {
@@ -108,14 +114,14 @@
     }
 
     .feed-item {
-      background: #f9f9f9;
+      background: #f5e9f8;
       padding: 12px;
       border-radius: 12px;
     }
 
     .feed-item .location {
       font-size: 12px;
-      color: #888;
+      color: #9a89a6;
     }
 
     .reactions {
@@ -143,16 +149,16 @@
 
     .place-card {
       min-width: 150px;
-      background: #fff;
+      background: #f1d3f4;
       padding: 12px;
       border-radius: 15px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
       font-size: 13px;
       flex-shrink: 0;
     }
 
     .invite {
-      background: #ffe;
+      background: #fef2ff;
       padding: 15px;
       border-radius: 12px;
       font-size: 14px;
