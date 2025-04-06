@@ -1,39 +1,606 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-   <meta charset="UTF-8" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title>Rate My Experience</title>
-   <link rel="stylesheet" href="styles.css" />
- </head>
- <body>
-   <div class="container">
-     <h1 class="title">Rate My Experience</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey Page</title>
+    <style>
+      body {
+        font-family: "Cambria", serif;
+        background-color:rgb(236, 195, 226);
+        color: #333;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        background-color: #ffcccb;
+        padding: 20px;
+        border-bottom: 2px rgb(84, 5, 5);
+      }
+
+      header h1 {
+        font-size: 3rem;
+        color: rgb(147, 5, 5);
+        margin: 0;
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .greeting {
+        font-size: 1.2rem;
+		font-weight:bold;
+        margin-top: 30px;
+        color:rgb(85, 10, 85);
+		align-items: center;
+        justify-content: center;
+      }
+
+      .start-btn {
+        margin-top: 30px;
+        padding: 15px 30px;
+        background-color: #ff4d4d;
+        color: white;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .start-btn:hover {
+        background-color: #ff1a1a;
+      }
+
+      footer {
+        background-color: #ffcccb;
+        padding: 10px;
+        margin-top: auto;
+        font-size: 0.9rem;
+        color: #333;
+      }
+
+      .question-container {
+        margin-top: 40px;
+        font-size: 1.5rem;
+      }
+
+      .question-container p {
+        margin-bottom: 15px;
+      }
+
+      .true-false-options {
+        margin-bottom: 20px;
+      }
+
+      .true-false-options label {
+        margin-right: 20px;
+      }
+
+      #survey-form {
+        margin-bottom: 50px;
+      }
+
+      .info {
+        margin-top: 20px;
+        text-align: left;
+        font-size: 1.2rem;
+      }
+
+      .info ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .info li {
+        margin: 10px 0;
+      }
+
+      .info button {
+        background-color: #ff4d4d;
+        color: white;
+        font-size: 1rem;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      .info button:hover {
+        background-color: #ff1a1a;
+      }
+
+      .comment-box {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        text-align: left;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+      }
+
+      .comment-box textarea {
+        width: 100%;
+        height: 150px;
+        font-size: 1rem;
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      .comment-box button {
+        background-color:rgb(12, 61, 14);
+        color: white;
+        font-size: 1rem;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+
+      .comment-box button:hover {
+        background-color: rgb(12, 59, 14);
+      }
+      .animated-text {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        font-size: 40px;
+        font-family: "Bubblegum Sans", cursive;
+        color: rgb(83, 2, 45);
+        text-shadow: 4px 4px 0 #00000033;
+      }
+
+      .animated-text {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(50px);
+        animation: popUp 0.6s forwards, bounce 2s infinite ease-in-out;
+      }
+
+      .animated-text span:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .animated-text span:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .animated-text span:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .animated-text span:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+      .animated-text span:nth-child(5) {
+        animation-delay: 0.4s;
+      }
+      .animated-text span:nth-child(6) {
+        animation-delay: 0.5s;
+      }
+	  @keyframes popUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.greeting {
+        background-color: rgba(171, 115, 203, 0.75);
+        padding: 20px;
+        border-radius: 12px;
+        max-width: 600px;
+        margin: 40px auto;
+        text-align: center;
+      }
+	  	.buttons {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		align-items: center;
+		margin-top: 50px;
+		}
+        .button {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		border: 2px solid black;
+		padding: 10px 20px;
+		border-radius: 50px;
+		text-decoration: none;
+		font-family: Arial, sans-serif;
+		font-size: 1.2rem;
+		color: black;
+		transition: background-color 0.3s ease, transform 0.2s ease;
+		}
+
+		.nav-buttons {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		align-items: center;
+		margin-top: 50px;
+		}
+
+		.nav-button {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		border: 2px solid black;
+		padding: 10px 20px;
+		border-radius: 50px;
+		text-decoration: none;
+		font-family: Arial, sans-serif;
+		font-size: 1.2rem;
+		color: black;
+		transition: background-color 0.3s ease, transform 0.2s ease;
+		}
+
+		.nav-button:hover {
+		background-color: #f0f0f0;
+		transform: scale(1.05);
+		}
+
+		.arrow-right,
+		.arrow-left {
+		font-size: 1.4rem;
+		}
 
 
-     <!-- Search Bar -->
-     <div class="search-bar">
-       <input
-         type="text"
-         id="searchInput"
-         placeholder="Search for a place..."
-       />
-       <button id="searchButton">Search</button>
-     </div>
+      button:hover {
+        background-color:rgb(18, 98, 179);
+      }
+	  .falling-flowers {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		pointer-events: none;
+		z-index: 999;
+		}
+
+	.flower {
+	position: absolute;
+	top: -50px;
+	font-size: 30px;
+	animation-name: fall;
+	animation-duration: 13s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	opacity: 0.10;
+	}
+
+	.flower:nth-child(1) {
+	left: 10%;
+	animation-delay: 0s;
+	}
+	.flower:nth-child(2) {
+	left: 30%;
+	animation-delay: 2s;
+	}
+	.flower:nth-child(3) {
+	left: 50%;
+	animation-delay: 4s;
+	}
+	.flower:nth-child(4) {
+	left: 70%;
+	animation-delay: 1s;
+	}
+	.flower:nth-child(5) {
+	left: 90%;
+	animation-delay: 3s;
+	}
+
+	@keyframes fall {
+	0% {
+		transform: translateY(0) rotate(0deg);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(100vh) rotate(360deg);
+		opacity: 0;
+	}
+	}
 
 
-     <div class="buttons">
-       <button class="button" id="foodButton">Food</button>
-       <button class="button" id="healthButton">Health and Wellness</button>
-       <button class="button" id="parksButton">Parks and Gardens</button>
-     </div>
+
+    </style>
+  </head>
+
+  <body>
+	<div class="falling-flowers">
+	<span class="flower">🌸</span>
+	<span class="flower">🌼</span>
+	<span class="flower">🌺</span>
+	<span class="flower">🌷</span>
+	<span class="flower">🌻</span>
+	</div>
+
+    <header>
+      <h1 class="animated-text">
+        <span>W</span>
+        <span>e</span>
+        <span>l</span>
+        <span>c</span>
+        <span>o</span>
+        <span>m</span>
+        <span>e</span>
+
+        <span>T</span>
+        <span>o</span>
+
+        <span>T</span>
+        <span>h</span>
+        <span>e</span>
+
+        <span>S</span>
+        <span>u</span>
+        <span>r</span>
+        <span>v</span>
+        <span>e</span>
+        <span>y</span>
+        <span>!</span>
+      </span>
+    </header>
+
+    <section>
+      <div class="greeting">
+        <p>Let's take a quick quiz! Answer with True or False 😊</p>
+      </div>
+    </section>
+
+    <div id="survey-form">
+      <div class="question-container" id="question-1">
+        <p>1.  I enjoy visiting local cafes.</p>
+        <div class="true-false-options">
+          <label>
+		  <ul>
+            <input
+              type="radio"
+              name="q1"
+              value="true"
+              onclick="askDrinkPreference()"
+            />
+            True
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="q1"
+              value="false"
+              onclick="addWalkNatureQuestion()"
+            />
+            False
+          </label>
+		  </ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let falseAnswers = 0;
+
+      function askDrinkPreference() {
+        const drinkQuestionDiv = document.createElement("div");
+        drinkQuestionDiv.classList.add("question-container");
+        drinkQuestionDiv.innerHTML = `
+            	<p>Do you prefer tea, coffee, or matcha?</p>
+            	<label>
+                	<input type="radio" name="drink" value="tea" onclick="showTeaCafes()"> Tea
+            	</label>
+            	<label>
+                	<input type="radio" name="drink" value="coffee" onclick="showCoffeeCafes()"> Coffee
+            	</label>
+            	<label>
+                	<input type="radio" name="drink" value="matcha" onclick="showMatchaCafes()"> Matcha
+            	</label>
+        	`;
+        document.getElementById("survey-form").appendChild(drinkQuestionDiv);
+      }
+
+      function showTeaCafes() {
+        const infoDiv = document.createElement("div");
+        infoDiv.classList.add("info");
+        infoDiv.innerHTML = `
+            	<h2>Nearby Tea Cafes:</h2>
+            	<ul>
+                	<li>Tea Time - A relaxing atmosphere <button onclick="takeMeThere('Tea Time')">Take me there!</button></li>
+                	<li>The Tea Lounge - Perfect for tea lovers <button onclick="takeMeThere('The Tea Lounge')">Take me there!</button></li>
+                	<li>Matcha World - Specializes in matcha <button onclick="takeMeThere('Matcha World')">Take me there!</button></li>
+            	</ul>
+        	`;
+        document.getElementById("survey-form").appendChild(infoDiv);
+      }
+
+      function showCoffeeCafes() {
+        const infoDiv = document.createElement("div");
+        infoDiv.classList.add("info");
+        infoDiv.innerHTML = `
+            	<h2>Nearby Coffee Cafes:</h2>
+            	<ul>
+                	<li>Café Latte - Cozy vibes! <button onclick="takeMeThere('Café Latte')">Take me there!</button></li>
+                	<li>The Daily Grind - Perfect for your morning boost! <button onclick="takeMeThere('The Daily Grind')">Take me there!</button></li>
+                	<li>Java Junction - Great place for work and coffee! <button onclick="takeMeThere('Java Junction')">Take me there!</button></li>
+            	</ul>
+        	`;
+        document.getElementById("survey-form").appendChild(infoDiv);
+      }
+
+      function showMatchaCafes() {
+        const infoDiv = document.createElement("div");
+        infoDiv.classList.add("info");
+        infoDiv.innerHTML = `
+            	<h2>Nearby Matcha Cafes:</h2>
+            	<ul>
+                	<li>Matcha Café - Great matcha selection! <button onclick="takeMeThere('Matcha Café')">Take me there!</button></li>
+                	<li>Green Tea Spot - For matcha lovers <button onclick="takeMeThere('Green Tea Spot')">Take me there!</button></li>
+                	<li>The Matcha House - The best matcha drinks! <button onclick="takeMeThere('The Matcha House')">Take me there!</button></li>
+            	</ul>
+        	`;
+        document.getElementById("survey-form").appendChild(infoDiv);
+      }
+
+      function addWalkNatureQuestion() {
+        falseAnswers++;
+        if (falseAnswers >= 4) {
+          showCommentBox();
+        } else {
+          const newQuestionDiv = document.createElement("div");
+          newQuestionDiv.classList.add("question-container");
+          newQuestionDiv.innerHTML = `
+                	<p>2. I like going on walks and connecting with nature</p>
+                	<label>
+                    	<input type="radio" name="q2" value="true" onclick="showNatureInfo()"> True
+                	</label>
+                	<label>
+                    	<input type="radio" name="q2" value="false" onclick="addRestaurantQuestion()"> False
+                	</label>
+            	`;
+          document.getElementById("survey-form").appendChild(newQuestionDiv);
+        }
+      }
+
+      function showNatureInfo() {
+        const infoDiv = document.createElement("div");
+        infoDiv.classList.add("info");
+        infoDiv.innerHTML = `
+            	<h2>Nearby Nature Walks:</h2>
+            	<ul>
+                	<li>Park Trail - Scenic views <button onclick="takeMeThere('Park Trail')">Take me there!</button></li>
+                	<li>Riverbank Walk - Peaceful and calm <button onclick="takeMeThere('Riverbank Walk')">Take me there!</button></li>
+                	<li>Greenwood Forest - Explore nature! <button onclick="takeMeThere('Greenwood Forest')">Take me there!</button></li>
+            	</ul>
+        	`;
+        document.getElementById("survey-form").appendChild(infoDiv);
+      }
+
+      function addRestaurantQuestion() {
+        const newQuestionDiv = document.createElement("div");
+        newQuestionDiv.classList.add("question-container");
+        newQuestionDiv.innerHTML = `
+            	<p>3. I like trying new restaurants.</p>
+            	<label>
+                	<input type="radio" name="q3" value="true" onclick="askRestaurantCuisine()"> True
+            	</label>
+            	<label>
+                	<input type="radio" name="q3" value="false" onclick="addShoppingQuestion()"> False
+            	</label>
+        	`;
+        document.getElementById("survey-form").appendChild(newQuestionDiv);
+      }
+
+      function addShoppingQuestion() {
+        const newQuestionDiv = document.createElement("div");
+        newQuestionDiv.classList.add("question-container");
+        newQuestionDiv.innerHTML = `
+            	<p>4. I would like to go shopping.</p>
+            	<label>
+                	<input type="radio" name="q4" value="true" onclick="askShoppingType()"> True
+            	</label>
+            	<label>
+                	<input type="radio" name="q4" value="false" onclick="showCommentBox()"> False
+            	</label>
+        	`;
+        document.getElementById("survey-form").appendChild(newQuestionDiv);
+      }
+
+      function askShoppingType() {
+        const shoppingQuestionDiv = document.createElement("div");
+        shoppingQuestionDiv.classList.add("question-container");
+        shoppingQuestionDiv.innerHTML = `
+            	<p>What would you like to shop for? Grocery, Clothes, or Gas/Oil?</p>
+            	<label>
+                	<input type="radio" name="shoppingType" value="grocery" onclick="showGroceryOptions()"> Grocery
+            	</label>
+            	<label>
+                	<input type="radio" name="shoppingType" value="clothes" onclick="showClothesOptions()"> Clothes
+            	</label>
+            	<label>
+                	<input type="radio" name="shoppingType" value="gas" onclick="showGasOptions()"> Gas/Oil
+            	</label>
+        	`;
+        document.getElementById("survey-form").appendChild(shoppingQuestionDiv);
+      }
+
+      function showGroceryOptions() {
+        const infoDiv = document.createElement("div");
+        infoDiv.classList.add("info");
+        infoDiv.innerHTML = `
+            	<h2>Nearby Grocery Stores:</h2>
+            	<ul>
+                	<li>Green Grocer - Organic food <button onclick="takeMeThere('Green Grocer')">Take me there!</button></li>
+                	<li>City Market - Fresh produce <button onclick="takeMeThere('City Market')">Take me there!</button></li>
+                	<li>SuperMart - All your grocery needs <button onclick="takeMeThere('SuperMart')">Take me there!</button></li>
+            	</ul>
+        	`;
+        document.getElementById("survey-form").appendChild(infoDiv);
+      }
+
+      function showClothesOptions() {
+        const infoDiv = document.createElement("div");
+        infoDiv.classList.add("info");
+        infoDiv.innerHTML = `
+            	<h2>Nearby Clothing Stores:</h2>
+            	<ul>
+                	<li>Fashion Hub - Trendy styles <button onclick="takeMeThere('Fashion Hub')">Take me there!</button></li>
+                	<li>Clothing Express - Great deals <button onclick="takeMeThere('Clothing Express')">Take me there!</button></li>
+                	<li>Style Street - Fashionable clothes <button onclick="takeMeThere('Style Street')">Take me there!</button></li>
+            	</ul>
+        	`;
+        document.getElementById("survey-form").appendChild(infoDiv);
+      }
+
+      function showGasOptions() {
+        const infoDiv = document.createElement("div");
+        infoDiv.classList.add("info");
+        infoDiv.innerHTML = `
+            	<h2>Nearby Gas Stations:</h2>
+            	<ul>
+                	<li>Quick Fuel - Affordable prices <button onclick="takeMeThere('Quick Fuel')">Take me there!</button></li>
+                	<li>Shell Station - Top quality fuel <button onclick="takeMeThere('Shell Station')">Take me there!</button></li>
+                	<li>Mobil Mart - Fuel and more <button onclick="takeMeThere('Mobil Mart')">Take me there!</button></li>
+            	</ul>
+        	`;
+        document.getElementById("survey-form").appendChild(infoDiv);
+      }
 
 
-     <!-- Section to display results -->
-     <div id="results" class="results"></div>
-   </div>
+    function showCommentBox() {
+        const commentBox = document.createElement("div");
+        commentBox.classList.add("comment-box");
+        commentBox.innerHTML = `
+            	 <h2>Thank you for your responses!</h2>
+            	<p>Do you have any comments or suggestions for us?</p>
+            	<textarea placeholder="Write your comments here..."></textarea>
+            	<button>Submit Comments</button>
+        	`;
+        document.getElementById("survey-form").appendChild(commentBox);
+      }
 
-
-   <script src="experience.js"></script>
- </body>
+      function takeMeThere(location) {
+        alert(`Taking you to ${location}!`);
+      }
+    </script>
+  </a>
+  </a>
+</div>
+    <section>
+	<div class="buttons">
+      <a href="experience.html" class="button">Visit our Feedback Page!!</a>
+    </section>
+	<div class="nav-buttons">
+  <a href="index.html" class="nav-button">
+    <div class="arrow-left">←</div>
+    Previous
+  </body>
 </html>
