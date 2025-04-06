@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  margin: 20px auto;
+  background-image: url('https://media.istockphoto.com/id/939154360/vector/boston-massachusetts-city-map-with-boroughs-grey-illustration-silhouette-shape.jpg?s=612x612&w=0&k=20&c=9kfkLLfDXv8MktEuHbMWna2hG-l85LhzyXaw87V0B-0='); /* Replace with your background */
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #000;
+}
+
+/* Example text overlay */
+.overlay-text {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.5); /* semi-transparent black */
+padding: 6px 12px; /* adds space around the text */
+border-radius: 6px; /* optional: rounds the corners */
+
+}
+
+.overlay-text2 {
+  position: absolute;
+  top: 100px;
+  left: 95px;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  background-color: rgba(255, 0, 0, 0.5); /* semi-transparent black */
+padding: 6px 12px; /* adds space around the text */
+border-radius: 6px; /* optional: rounds the corners */
+
+}
+
+.overlay-text3 {
+  position: absolute;
+  top: 100px;
+  left: 315px;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  background-color: rgba(255, 0, 0, 0.5); /* semi-transparent black */
+padding: 6px 12px; /* adds space around the text */
+border-radius: 6px; /* optional: rounds the corners */
+
+}
+
+.overlay-text4 {
+  position: absolute;
+  top: 300px;
+  left: 275px;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  background-color: rgba(255, 0, 0, 0.5); /* semi-transparent black */
+padding: 6px 12px; /* adds space around the text */
+border-radius: 6px; /* optional: rounds the corners */
+
+}
+
+/* Example image overlay */
+.overlay-image {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+  height: auto;
+}
